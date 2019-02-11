@@ -31,7 +31,7 @@ Koks Jūsų vardas: Matas
 - `git clone https://github.com/MatasC/Objektinis-programavimas.git`
 - `cd Objektinis-programavimas`
 - `g++ -o Pasisveikinimas.cpp pasisveikinimas`
-- `./pasisveikinimas`
+- `./pasisveikinimas` (Jeigu naudojantis ne PowerShell, tuomet užtenka parašyti `pasisveikinimas.exe`)
 ## Versijų istorija
 ### [v1.0](https://github.com/MatasC/Objektinis-programavimas/releases/tag/v1.0) - (2019-02-11)
 
