@@ -1,35 +1,41 @@
 #include<iostream>
 #include<stdio.h>
-using namespace std;
-void Remelio_spausdinimas(string sveikinimas, int tarpai,int eilute)
+using std::cin;
+using std::cout;
+using std::string;
+using std::endl;
+void Remelio_spausdinimas(string sveikinimas, int tarpai,int eilute, int plotis)
 {
-    string eil1="", eil2="", eil3="" , eil4="", eil5="";
-    for(int i=0;i<eilute;i++)
+    for(int i=0;i<plotis;i++)
     {
-        eil1+="*";
-        eil5+="*";
+        if(i==0 || i==plotis-1)
+        {
+            for(int w=0;w<eilute;w++)
+            {
+                cout<<"*";
+            }
+            cout<<endl;
+        }
+        else if(i==tarpai+1)
+        {
+            cout<<"*";
+            for(int w=0;w<tarpai;w++)
+                cout<<" ";
+            cout<<sveikinimas;
+            for(int w=0;w<tarpai;w++)
+                cout<<" ";
+                cout<<"*"<<endl;
+        }
+        else
+        {
+            cout<<"*";
+            for(int w=0;w<eilute-2;w++)
+            {
+                cout<<" ";
+            }
+            cout<<"*"<<endl;
+        }
     }
-    eil2+="*";
-    eil4+="*";
-    for(int e=0;e<eilute-2;e++)
-    {
-        eil2+=" ";
-        eil4+=" ";
-    }
-    eil2+="*";
-    eil4+="*";
-    eil3+="*";
-    for(int i=0;i<tarpai;i++)
-    {
-        eil3+=" ";
-    }
-    eil3+=sveikinimas;
-    for(int i=0;i<tarpai;i++)
-    {
-        eil3+=" ";
-    }
-    eil3+="*";
-    cout<<eil1<<endl<<eil2<<endl<<eil3<<endl<<eil4<<endl<<eil5<<endl;
 }
 int main()
 {
@@ -53,5 +59,6 @@ int main()
     }
     printf("\n");
     const int eilute = sveikinimas.size() + tarpai*2+2;
-    Remelio_spausdinimas(sveikinimas,tarpai,eilute);
+    const int plotis = tarpai*2+3;
+    Remelio_spausdinimas(sveikinimas,tarpai,eilute,plotis);
 }
