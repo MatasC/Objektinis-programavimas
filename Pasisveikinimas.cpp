@@ -37,13 +37,21 @@ int main()
     int tarpai=-1;
     printf("Koks Jusu vardas: ");
     cin>>vardas;
+    if(vardas.back() == 's')
+    {
+        sveikinimas = "Sveikas, " + vardas + "!";
+    }
+    else
+    {
+        sveikinimas = "Sveika, " + vardas + "!";
+    }
+
     printf("Iveskite remelio dydi (nuo 1 iki 10): ");
     while(tarpai<=0 || tarpai>10)
     {
         cin>>tarpai;
     }
     printf("\n");
-    sveikinimas = "Sveikas, " + vardas + "!";
     const int eilute = sveikinimas.size() + tarpai*2+2;
     Remelio_spausdinimas(sveikinimas,tarpai,eilute);
 }
