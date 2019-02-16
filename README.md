@@ -9,7 +9,7 @@ Matas  Čenys   8.80
 ------------------------
 ```
 ##Versijų istorija
-### [v0.1]() - (2019-02-16)
+### [v0.1](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.1) - (2019-02-16)
 **Pridėta**
 -Sukurtas README.md failas
 -Pridėta programos versija atlikta su C masyvais.
