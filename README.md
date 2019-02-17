@@ -1,9 +1,9 @@
-#2 užduotis. Duomenų apdorojimas
+# 2 užduotis. Duomenų apdorojimas
 ## Programos tikslas
 Programa nuskaito mokinio vardą, pavardę,egzamino įvertinimą ir namų darbų įvertinimus, tuomet, paskaičiavusi galutinį studento pažymį, programa lentelėje išveda visų studentų galutinius pažymius, vardus ir pavardes.
 ## Išvedimo pavyzdys
 ```shell
-Vardas Pavardė Galutinis
+Vardas Pavardė  Galutinis
 ------------------------
 Matas  Čenys   8.80
 ------------------------
