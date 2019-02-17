@@ -17,21 +17,21 @@ Matas    Cenys     8     9     6     9
 Arvydas  Sabonis   10    7           10
 ```
 ## Versijų istorija
-### [v0.2](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.2) - (2019-02-17)
-**Pridėta**
--Tekstinis failas studentų duomenims įvesti kursiokai.txt
-**Koreguota**
--Programoje pridėta galimybė nuskaityti mokinių duomenis iš tekstinio failo.
--Pridėtas mokinių rūšiavimas pagal vardą (jei vardai vienodi, tai pagal pavardę) prieš spausdinimą.
--Patobulintas duomenų įvedimas ranka taip, kad duomenys vistiek būtų išrikiuoti prieš spasudinant.
--Papildytas README.md failas.
-### [v0.1](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.1) - (2019-02-16)
-**Pridėta**
--Sukurtas README.md failas
--Pridėta programos versija atlikta su C masyvais.
--pridėta programos versija su vector tipo C++ konteineriais.
-**Koreguota**
--README.md pridėtas trumpas programos aprašymas.
--pridėta funkcija atsitiktinai sugeneruoti mokinio pažymius (naudojant C++11 standarto generavimo funkcijas).
--versijoje su vector konteineriais pridėta struktūra mokinių duomenims saugoti (taip pat vector tipo).
--Pridėta galimybė galutinį balą skaičiuoti naudojant medianą, vietoje vidurkio.
+### [v0.2](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.2) - (2019-02-17)  
+**Pridėta**  
+-Tekstinis failas studentų duomenims įvesti kursiokai.txt  
+**Koreguota**  
+-Programoje pridėta galimybė nuskaityti mokinių duomenis iš tekstinio failo.  
+-Pridėtas mokinių rūšiavimas pagal vardą (jei vardai vienodi, tai pagal pavardę) prieš spausdinimą.  
+-Patobulintas duomenų įvedimas ranka taip, kad duomenys vistiek būtų išrikiuoti prieš spasudinant.  
+-Papildytas README.md failas.  
+### [v0.1](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.1) - (2019-02-16)  
+**Pridėta**    
+-Sukurtas README.md failas  
+-Pridėta programos versija atlikta su C masyvais.  
+-pridėta programos versija su vector tipo C++ konteineriais.  
+**Koreguota**  
+-README.md pridėtas trumpas programos aprašymas.  
+-pridėta funkcija atsitiktinai sugeneruoti mokinio pažymius (naudojant C++11 standarto generavimo funkcijas).  
+-versijoje su vector konteineriais pridėta struktūra mokinių duomenims saugoti (taip pat vector tipo).  
+-Pridėta galimybė galutinį balą skaičiuoti naudojant medianą, vietoje vidurkio.  
