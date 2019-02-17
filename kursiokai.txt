@@ -1,5 +1,5 @@
-Pavarde     Vardas      ND1  ND2   ND3  ND4  ND5  Egzaminas
-Matas       Cenys      8    9     10   6    10   9
-Kasparas     Brazenas  7    10    8    5    4    6
+Vardas     Pavarde      ND1  ND2   ND3  ND4  ND5  Egzaminas
+Matas      Cenys        8    9     10   6    10   9
+Kasparas   Brazenas     7    10    8    5    4    6
 Karolis Paulauskas 7 10 3 9
 Arvydas Sabonis 10 2 9
