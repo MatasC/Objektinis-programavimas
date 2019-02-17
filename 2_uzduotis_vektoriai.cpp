@@ -104,6 +104,7 @@ int main()
                     studentai[i].mediana=studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2]*1.0;
                 }
             }
+            std::sort(studentai.begin(),studentai.end(),tikrinimas);
             cout<<"Ar galutini pazymi isvesti pagal mediana (m), ar pagal vidurki (v): ";
             cin>>pasirinkimas;
             system("pause");
