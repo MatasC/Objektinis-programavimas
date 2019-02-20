@@ -3,4 +3,4 @@
 ## [1_uzduotis](https://github.com/MatasC/Objektinis-programavimas/tree/1_uzduotis)  
 -Pasisveikinimo uzduotis  
 ## [2_uzduotis](https://github.com/MatasC/Objektinis-programavimas/tree/2-Uzduotis)  
---Duomenu apdorojimo uzduotis  
+-Duomenu apdorojimo uzduotis  
