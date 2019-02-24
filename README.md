@@ -1,6 +1,13 @@
 # 2 užduotis. Duomenų apdorojimas
 ## Programos tikslas
 Programa nuskaito mokinio vardą, pavardę,egzamino įvertinimą ir namų darbų įvertinimus, tuomet, paskaičiavusi galutinį studento pažymį, programa lentelėje išveda visų studentų galutinius pažymius, vardus ir pavardes.
+## Makefile komandos  
+-make paleidimas: sukuria programos paleidimo failą `programa.exe` (jeigu nebūna sukurtas prieš tai, tuomet ši komanda sukuria ir function.o failą).  
+-make funkcijos: sukurią failą `function.o`.   
+-make valymas: ištrina programos paleidimo failą `programa.exe` ir visus failus su pabaiga `.o`.  
+## Programos paleidimas   
+-Įjungti terminalą (komandinę eilutę) ir įvesti komandą `make paleidimas`.   
+-Tuomet, parašyti komandą `./programa` (arba paleisti sukurtą faila `programa.exe`).  
 ## Išvedimo pavyzdys
 ```shell
 Vardas Pavardė  Galutinis
@@ -17,6 +24,15 @@ Matas    Cenys     8     9     6     9
 Arvydas  Sabonis   10    7           10
 ```
 ## Versijų istorija
+### [v0.3]() - (2019-02-24)  
+**Pridėta**  
+-makefile patogesniam programos paleidimui ir naudojimui.  
+-header failas, kuriame yra laikomos visų funkcijų deklaracijos ir struktūros aprašymas.  
+-function.cpp failas, kuriame laikomi visų funkcijų aprašymai.  
+**Koreguota**  
+-Programa papildyta  įvesties apsaugomis (pvz. programa nutraukia darbą jei neranda tinkamo .txt failo, galutinį mokinio pažymį padaro 0, jeigu nėra įvesti namų darbų įvertinimai).  
+-Patobulinta duomenų saugojimo struktūra.
+-Papildytas README.md failas (paleidimo instrukcija, v0.3 aprašymas).
 ### [v0.2](https://github.com/MatasC/Objektinis-programavimas/releases/tag/0.2) - (2019-02-17)  
 **Pridėta**  
 -Tekstinis failas studentų duomenims įvesti kursiokai.txt  
