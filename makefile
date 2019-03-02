@@ -3,4 +3,4 @@ paleidimas: function.o
 funkcijos:
 	g++ -c function.cpp
 valymas:
-	rm *.o programa
+	rm *.o *.txt programa
