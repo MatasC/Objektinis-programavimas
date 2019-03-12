@@ -43,7 +43,7 @@ Taip pat verta paminėti, kad šioje versijoje buvo pastebėta ir sutvarkyta atm
 -**Dauguma funkcijų perrašytos siekiant sumažinti atminties naudojimą.**  
 -**Išvalyta visa iteracijos metu nereikalinga informacija (po galutinio skaičiavimo ištrinami namų darbų pažymiai, nebeskaičiuojami galutiniai ir pagal medianą ir pagal vidurkį, o tik pagal pasirinktą kriterijų)**  
 -Panaikintas duomenų failų generavimas programos veikimo metu.  
-#### v0.4.1 - (2019-03-02)  
+### v0.4.1 - (2019-03-02)  
 **Koreguota**  
 -Pataisyti medianos ir vidurkio duomenų tipai (buvo int, pakeisti į double). Ši klaida buvo nuo v0.1, tačiau tik šioje versijoje buvo pataisyta.
 ### [v0.4](https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v0.4) - (2019-03-02)
