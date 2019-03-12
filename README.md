@@ -24,7 +24,28 @@ Vardas   Pavarde   ND1   ND2   ND3   Egzaminas
 Matas    Cenys     8     9     6     9
 Arvydas  Sabonis   10    7           10
 ```
+## Programos veikimo rezultatai
+### v0.4
+Tikrintos programos turėjo po 100, 1 000, 10 000, 100 000, 1 000 000 eilučių ir 10 namų darbų pažymių. Studentų skirstymas buvo neteisingas ir buvo pataisytas versijoje v0.5 (iki v0.5 studentai buvo išskirstomi prieš pat išvedimą if'u patikrinant jų galutinį pažymį). Taip parašyta programa, eilučių skaičiui padidėjus 10 kartų, sulėtėdavo apytiksliai 10 (paskutinės dvi iteracijos sulėtėdavo netgi šiek tiek daugiau nei 10 kartų). daugiausiai laiko užimdavo failų sugeneravimas ir išvedimas (kadangi atrinkimas į gerus ir blogus buvo atliekamas išvedant duomenis).
+### v0.5
+Tikrintos programos turėjo tiek pat eilučių ir duomenų (100, 1 000, 10 000, 100 000, 1 000 000), tačiau buvo naudoti trys skirtingi konteineriai, failai nebebuvo generuojami, o duomenų atrinkimui sukurta atskira funkcija. Eilučių skaičiui esant ne didesniam nei 10 000, programų veikimo laikai buvo labai panašūs (nebuvo galima pastebėti, kad kažkuris konteineris dirbtų ženkliai greičiau nei kitas, o ir vienas konteineris kartais netgi aplenkdavo kitą), tačiau didėjant eilučių skaičiui vis labiau ryškėjo list konteinerio pranašumai prieš vector ir deque (kurie atliko užduotį labai panašiais laikais, nors vector dažnai aplenkdavo deque, net jeigu ir skirtumas nebudavo labai didelis), kuris su 1 000 000 eilučių failą įveikė 3 kartus greičiau nei vector ar deque. Taip pat verta paminėti ir list rikiavimo komandos list::sort pranašumą prieš std::sort, kuris buvo naudotas vector ir deque rikiavimui, nes list::sort buvo viena iš priežasčių padėjusių list'ui taip stipriai aplenkti vector ir deque paskutinėje iteracijoje.
+Taip pat verta paminėti, kad šioje versijoje buvo pastebėta ir sutvarkyta atminties naudojimo problema (neefektyviai naudojama atmintis, nereikalingos informacijos saugojimas), kuri sumažino programos veikimo laiką maždaug 20% (list atveju, programos sulėtėjimas buvo dar didesnis, kurio dėka problema ir buvo pastebėta).
 ## Versijų istorija
+### [v0.5]() - (2019-03-12)  
+**Pridėta**  
+-duomenų failai.  
+**1 000 000 eilučių failo neleido įkelti git'as dėl dydžio apribojimų, todėl prieš paleidžiant programą reikia sugeneruoti dar vieną failą arba sumažinti for iteracijų skaičių**  
+**Koreguota**  
+-Išskaidytas function.cpp failas (sukurti list.cpp, deque.cpp, vector.cpp) tam, kad būtų lengviau atskirti, kuri funkcija yra skirta kuriam konteineriui.  
+-Pataisytas makefile tam, kad veiktų su naujai perdarytu function.cpp failu (sukuria tris skirtingus .exe failus trims konteineriams).  
+-**Stipriai pakeista duomenų saugojimo struktūra siekiant sumažinti programos atminties naudojimą.**  
+-Pridėta funkcija, kuri išskirsto studentus į gerus ir blogus.  
+-**Dauguma funkcijų perrašytos siekiant sumažinti atminties naudojimą.**  
+-**Išvalyta visa iteracijos metu nereikalinga informacija (po galutinio skaičiavimo ištrinami namų darbų pažymiai, nebeskaičiuojami galutiniai ir pagal medianą ir pagal vidurkį, o tik pagal pasirinktą kriterijų)**  
+-Panaikintas duomenų failų generavimas programos veikimo metu.  
+#### [v0.4.1] (https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v0.4) - (2019-03-02)  
+**Koreguota**  
+-Pataisyti medianos ir vidurkio duomenų tipai (buvo int, pakeisti į double). Ši klaidą buvo nuo v0.1, tačiau tik šioje versijoje buvo pataisyta.
 ### [v0.4](https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v0.4) - (2019-03-02)
 **Koreguota**  
 -function.cpp patobulintos funkcijos, kad programa galėtų sugeneruoti pradinių duomenų failą ir sutvarkytus duomenis, pagal nurodytą kriterijų, išspausdintų į du naujus failus (`blogi.txt` ir `geri.txt`).  
