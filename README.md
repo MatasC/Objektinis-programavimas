@@ -68,7 +68,7 @@ Taip pat verta paminėti, kad šioje versijoje buvo pastebėta ir sutvarkyta atm
 ### v0.4
 Tikrintos programos turėjo po 100, 1 000, 10 000, 100 000, 1 000 000 eilučių ir 10 namų darbų pažymių. Studentų skirstymas buvo neteisingas ir buvo pataisytas versijoje v0.5 (iki v0.5 studentai buvo išskirstomi prieš pat išvedimą if'u patikrinant jų galutinį pažymį). Taip parašyta programa, eilučių skaičiui padidėjus 10 kartų, sulėtėdavo apytiksliai 10 (paskutinės dvi iteracijos sulėtėdavo netgi šiek tiek daugiau nei 10 kartų). daugiausiai laiko užimdavo failų sugeneravimas ir išvedimas (kadangi atrinkimas į gerus ir blogus buvo atliekamas išvedant duomenis).
 ## Versijų istorija
-### [v1.0]() - (2019-03-23)  
+### [v1.0](https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v1.0) - (2019-03-23)  
 **Koreguota**  
 -Visų konteinerių main funkcijos, taip pat ir papildomos funkcijos.  
 -Pataisymai ir papildymai header faile.  
