@@ -1,36 +1,78 @@
 # 2 užduotis. Duomenų apdorojimas
 ## Programos tikslas
-Programa nuskaito mokinio vardą, pavardę,egzamino įvertinimą ir namų darbų įvertinimus, tuomet, paskaičiavusi galutinį studento pažymį, programa lentelėje išveda visų studentų galutinius pažymius, vardus ir pavardes.  
+Programa nuskaito mokinio vardą, pavardę,egzamino įvertinimą ir -make namų darbų įvertinimus, tuomet, paskaičiavusi galutinį studento pažymį, programa lentelėje išveda visų studentų galutinius pažymius, vardus ir pavardes.  
 **Nuo v0.4 programos tikslas yra ir patikrinti kaip sparčiai programa gali atlikti šią užduotį ir kaip jos sparta priklauso nuo pradinių duomenų failo dydžio**  
 ## Makefile komandos  
--make paleidimas: sukuria programos paleidimo failą `programa.exe` (jeigu nebūna sukurtas prieš tai, tuomet ši komanda sukuria ir function.o failą).  
+-make vector: sukuria failą `vector.exe`.  
+-make deque: sukuria failą `deque.exe`.  
+-make list: sukuria failą `list.exe`.  
 -make funkcijos: sukurią failą `function.o`.   
--make valymas: ištrina programos paleidimo failą `programa.exe` ir visus failus su pabaiga `.o` arba `.txt`.  
+-make valymas: ištrina programų paleidimo failus `*.exe` ir visus failus programos sukurtus šailus su pabaiga `.o` arba `.txt` išskyrus `Laiku_suvestine.txt`.   
 ## Programos paleidimas   
--Įjungti terminalą (komandinę eilutę) ir įvesti komandą `make paleidimas`.   
--Tuomet, parašyti komandą `./programa` (arba paleisti sukurtą faila `programa.exe`).  
+-Įjungti terminalą (komandinę eilutę) ir įvesti komandą `make vector/make list/make deque`.   
+-Tuomet, parašyti komandą `./vector` arba atitinkamą kito konteinerio programos pavadinimą (arba paleisti sukurtą failą `vector.exe`).  
 **Windows operacinėje sistemoje šios komandos neveikia, reikia naudoti `g++ -o programa 2_uzduotis_vektoriai.cpp function.cpp`**  
 ## Išvedimo pavyzdys
 ```shell
 Vardas Pavardė  Galutinis
-------------------------
-Matas  Čenys   8.86
+-------------------------
+Matas  Čenys    8.86
 ```
 ## Programos naudojimas
-Norint, kad programa nuskaitytų duomenis iš failo, reikia papildyti prie programos prisegtą failą „kursiokai.txt“. Pirmoji failo eilute yra skirta stulpelių aprašymams, todėl į ją negalima įrašyti duomenų, o nuo antrosios eilutės galima įrašinėti duomenis. Lygiuotė ar vienodas skaičius pažymių yra nebūtini (vienas studentas gali turėti daugiau įvertinimų už kitus ir atvirkščiai), tačiau egzamino įvertinimas turi būti paskutinis skaičius eilutėje.
-Tekstinio failo pavyzdys:
+Norint, kad programa nuskaitytų duomenis iš failo, reikia papildyti prie programos prisegtą failą „kursiokai.txt“. Pirmoji failo eilute yra skirta stulpelių aprašymams, todėl į ją negalima įrašyti duomenų, o nuo antrosios eilutės galima įrašinėti duomenis.  
+**Pradėjus laiko matavimus ir optimizavimus, sukurti 5 tekstiniai pradinių duomenų failai mokiniai1.txt, mokiniai2.txt ir t.t.**  
+Tekstinio failo pavyzdys:  
 ```shell
-Vardas   Pavarde   ND1   ND2   ND3   Egzaminas
 Matas    Cenys     8     9     6     9
-Arvydas  Sabonis   10    7           10
+Arvydas  Sabonis   10    7     8     10
 ```
 ## Programos veikimo rezultatai
-### v0.4
-Tikrintos programos turėjo po 100, 1 000, 10 000, 100 000, 1 000 000 eilučių ir 10 namų darbų pažymių. Studentų skirstymas buvo neteisingas ir buvo pataisytas versijoje v0.5 (iki v0.5 studentai buvo išskirstomi prieš pat išvedimą if'u patikrinant jų galutinį pažymį). Taip parašyta programa, eilučių skaičiui padidėjus 10 kartų, sulėtėdavo apytiksliai 10 (paskutinės dvi iteracijos sulėtėdavo netgi šiek tiek daugiau nei 10 kartų). daugiausiai laiko užimdavo failų sugeneravimas ir išvedimas (kadangi atrinkimas į gerus ir blogus buvo atliekamas išvedant duomenis).
+### Galutinės versijos laikų rezultatai  
+Pavaizduoti kiekvieno konteinerio trijų bandymų laikai su abiem strategijom. Rodomi tik milijoninio failo (mokiniai5.txt) laikai. Kad galimybės būtų lygios, galutiniai balai visais atvejais skaičiuoti pagal vidurkį.  
+```shell
+---------------------------------------------   
+Vector:   
+  1 Strategija:   38.8972   39.2304   35.9571   
+  2 Strategija:   41.9406   33.3813   33.7042   
+---------------------------------------------   
+Deque:   
+  1 Strategija:   18.0645   22.1575   20.0984   
+  2 Strategija:   75.0542   62.1517   63.9163   
+---------------------------------------------  
+List:  
+  1 Strategija:   25.4527   25.4963   21.9871   
+  2 Strategija:   24.3178   27.3881   26.744   
+---------------------------------------------  
+```
+**Vidutiniai laikai:**  
+```shell
+-----------------------  
+Vector:  
+  1 Strategija: 38.0282  
+  2 Strategija: 36.3420  
+-----------------------  
+Deque:  
+  1 Strategija: 20.1068  
+  2 Strategija: 67.0407  
+-----------------------  
+List:  
+  1 Strategija: 24.3120  
+  2 Strategija: 26.1500  
+-----------------------
+```
+### v1.0  
+Esant vienodoms sąlygoms, List išliko pats greičiausias, tačiau reikia pripažinti, kad Vector tikrai buvo galima optimizuoti, o ir studentų rūšiavimo principas šiek tiek skyrėsi nuo dėstytojo siūlyto (studentai iš pradžių išrikiuoti mažėjančiai pagal pažymius, o tuomet išskirstyti į gerus ir blogus), todėl kiek sunkiau pasakyti, kuris konteineris turėjo būti greičiausias. Tenka pripažinti, kad Vector greitis šiek tiek nuvylė, tačiau dėl lėtumo visiškai kaltinu optimizaciją (Vector greitį tikrai galima padidinti, o laiką sumažinti dar bent 10 sekundžių, tačiau man nepavyko sugalvoti kaip dar optimizuoti programą, taip pat šiek tiek trūko žinių), tačiau sužavėjo jo laikų pastovumas kintant strategijoms, todėl manau, kad Vector yra atlaidesnis programuotojo klaidoms ir patirties ar žinių trūkumui. Nustebino Deque veikimas: 1 strategijoje sumušęs visus rekordus, 2 strategijoje parodė patį blogiausią laiką (tačiau Deque buvo skirta mažiausiai laiko, o kuriant šią versiją jis buvo ir mažiausiai optimizuotas, todėl kodas išliko toks kaip ir v0.5 ir jame nebuvo naudojamos naujos funkcijos, tokios kaip copy, ar iteratoriai). List parodė geriausius pastovius laikus ir vidutiniškai buvo greičiausias iš visų konteinerių. Tai pasiekti jam padėjo optimizavimas (Visos Vector pritaikytos funkcijos buvo pritaikytos ir List, norint pamatyti kiek labai tai pagreitintų ir jo darbą), nes Vector ir List kodai yra labai panašūs ir buvo labiausiai tvarkomi kuriant v1.0.  
 ### v0.5
 Tikrintos programos turėjo tiek pat eilučių ir duomenų (100, 1 000, 10 000, 100 000, 1 000 000), tačiau buvo naudoti trys skirtingi konteineriai, failai nebebuvo generuojami, o duomenų atrinkimui sukurta atskira funkcija. Eilučių skaičiui esant ne didesniam nei 10 000, programų veikimo laikai buvo labai panašūs (nebuvo galima pastebėti, kad kažkuris konteineris dirbtų ženkliai greičiau nei kitas, o ir vienas konteineris kartais netgi aplenkdavo kitą), tačiau didėjant eilučių skaičiui vis labiau ryškėjo list konteinerio pranašumai prieš vector ir deque (kurie atliko užduotį labai panašiais laikais, nors vector dažnai aplenkdavo deque, net jeigu ir skirtumas nebudavo labai didelis), kuris su 1 000 000 eilučių failą įveikė 3 kartus greičiau nei vector ar deque. Taip pat verta paminėti ir list rikiavimo komandos list::sort pranašumą prieš std::sort, kuris buvo naudotas vector ir deque rikiavimui, nes list::sort buvo viena iš priežasčių padėjusių list'ui taip stipriai aplenkti vector ir deque paskutinėje iteracijoje.
 Taip pat verta paminėti, kad šioje versijoje buvo pastebėta ir sutvarkyta atminties naudojimo problema (neefektyviai naudojama atmintis, nereikalingos informacijos saugojimas), kuri sumažino programos veikimo laiką maždaug 20% (list atveju, programos sulėtėjimas buvo dar didesnis, kurio dėka problema ir buvo pastebėta).
+### v0.4
+Tikrintos programos turėjo po 100, 1 000, 10 000, 100 000, 1 000 000 eilučių ir 10 namų darbų pažymių. Studentų skirstymas buvo neteisingas ir buvo pataisytas versijoje v0.5 (iki v0.5 studentai buvo išskirstomi prieš pat išvedimą if'u patikrinant jų galutinį pažymį). Taip parašyta programa, eilučių skaičiui padidėjus 10 kartų, sulėtėdavo apytiksliai 10 (paskutinės dvi iteracijos sulėtėdavo netgi šiek tiek daugiau nei 10 kartų). daugiausiai laiko užimdavo failų sugeneravimas ir išvedimas (kadangi atrinkimas į gerus ir blogus buvo atliekamas išvedant duomenis).
 ## Versijų istorija
+### [v1.0]() - (2019-03-23)  
+**Koreguota**  
+-Visų konteinerių main funkcijos, taip pat ir papildomos funkcijos.  
+-Pataisymai ir papildymai header faile.  
+-README.md failo papildymas su laikų suvestine ir v1.0 veikimo įvertinimu.
 ### [v0.5](https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v0.5) - (2019-03-12)  
 **Pridėta**  
 -duomenų failai.  
