@@ -2,12 +2,12 @@
 
 bool tikrinimas(duomenys stud1, duomenys stud2)
 {
-    if(stud1.vardas<stud2.vardas)
-        return 1;
-    else if(stud1.vardas == stud2.vardas && stud1.pavarde<stud2.pavarde)
-        return 1;
-    else
-        return 0;
+    return stud1.vardas>stud2.vardas;
+}
+
+bool tikrinimas_gal(duomenys stud1, duomenys stud2)
+{
+    return stud1.Galutinis > stud2.Galutinis;
 }
 
 int ilgiausias(int tikrinamas_ilgis, int ilgiausias_vardas)
@@ -58,7 +58,7 @@ void skaitymas(deque <duomenys> &studentai, int &ilgiausias_vardas, int &ilgiaus
     in.close();
 }
 
-void isvedimas(deque <duomenys> &blogi, deque <duomenys> &geri, int &ilgiausias_vardas, int &ilgiausia_pavarde, int skaicius)
+void isvedimas(deque <duomenys> &blogi, deque <duomenys> &geri, int &ilgiausias_vardas, int &ilgiausia_pavarde)
 {
     std::ofstream out1("geri.txt");
     std::ofstream out2("blogi.txt");
@@ -78,7 +78,7 @@ void isvedimas(deque <duomenys> &blogi, deque <duomenys> &geri, int &ilgiausias_
     out2.close();
 }
 
-void atrinkimas(deque <duomenys>& studentai, deque <duomenys>& blogi, deque <duomenys>& geri)
+void atrinkimas_1(deque <duomenys>& studentai, deque <duomenys>& blogi, deque <duomenys>& geri)
 {
     for(auto i : studentai)
     {
@@ -87,6 +87,23 @@ void atrinkimas(deque <duomenys>& studentai, deque <duomenys>& blogi, deque <duo
         else if(i.Galutinis < 5)
             blogi.push_back(i);
     }
+}
+
+void atrinkimas_2(deque <duomenys>& studentai, deque <duomenys> &blogi)
+{
+    std::sort(studentai.begin(), studentai.end(), tikrinimas_gal);
+    int svertinis = 0;
+    for(auto i : studentai)
+    {
+        if(i.Galutinis < 5)
+            blogi.push_back(i);
+        else 
+            svertinis++;
+
+    }
+    studentai.resize(svertinis);
+    std::sort(blogi.begin(), blogi.end(), tikrinimas);
+    std::sort(studentai.begin(), studentai.end(), tikrinimas);
 }
 
 void galutinis(deque <duomenys> &studentai, int i, char &pasirinkimas)

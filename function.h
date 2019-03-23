@@ -32,7 +32,10 @@ struct duomenys {
 };
 
 bool tikrinimas(duomenys, duomenys);
+bool tikrinimas_gal(duomenys, duomenys);
+bool tikrinimas_5(duomenys);
 int ilgiausias(int, int);
+char Ivestis_kr(char);
 
 void skaitymas(vector <duomenys>&, int&, int&, int, char&);
 void skaitymas(deque <duomenys>&, int&, int&, int, char&);
@@ -40,16 +43,19 @@ void skaitymas(list <duomenys>&, int&, int&, int, char&);
 
 void generavimas(std::ofstream&, int);
 
-void isvedimas(vector <duomenys>&, vector <duomenys>&, int&, int&, int);
-void isvedimas(deque <duomenys>&, deque <duomenys>&, int&, int&, int);
+void isvedimas(vector <duomenys>&, vector <duomenys>&, int&, int&);
+void isvedimas(deque <duomenys>&, deque <duomenys>&, int&, int&);
 void isvedimas(list <duomenys>&, list <duomenys>&, int&, int&, int);
 
 void galutinis(vector <duomenys>&, int, char&);
 void galutinis(deque <duomenys>&, int, char&);
 void galutinis(duomenys&, char&);
 
-void atrinkimas(vector <duomenys>&, vector <duomenys>&, vector <duomenys>&);
-void atrinkimas(deque <duomenys>&, deque <duomenys>&, deque <duomenys>&);
-void atrinkimas(list <duomenys>&, list <duomenys>&, list <duomenys>&);
+void atrinkimas_1(vector <duomenys>&, vector <duomenys>&, vector <duomenys>&);
+void atrinkimas_2(vector <duomenys>&, vector<duomenys>&);
+void atrinkimas_1(deque <duomenys>&, deque <duomenys>&, deque <duomenys>&);
+void atrinkimas_2(deque <duomenys>&, deque <duomenys>&);
+void atrinkimas_1(list <duomenys>&, list <duomenys>&, list <duomenys>&);
+void atrinkimas_2(list <duomenys>&, list <duomenys>&);
 
 #endif // FUNCTION

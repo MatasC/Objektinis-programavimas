@@ -5,6 +5,16 @@ bool tikrinimas(duomenys stud1, duomenys stud2)
     return stud1.vardas < stud2.vardas;
 }
 
+bool tikrinimas_gal(duomenys stud1, duomenys stud2)
+{
+    return stud1.Galutinis < stud2.Galutinis;
+}
+
+bool tikrinimas_5(duomenys stud1)
+{
+    return stud1.Galutinis == 5;
+}
+
 int ilgiausias(int tikrinamas_ilgis, int ilgiausias_vardas)
 {
     return std::max(ilgiausias_vardas,tikrinamas_ilgis);
@@ -26,44 +36,62 @@ void generavimas(std::ofstream& in, int skaicius)
     }
 }
 
+char Ivestis_kr(char pasirinkimas)
+{
+    cin>>pasirinkimas;
+    while(pasirinkimas != 'v')
+    {
+        if(pasirinkimas == 'm' || pasirinkimas == '2' || pasirinkimas == '1')
+            break;
+        cout<<"Neteisingas kriterijus. Bandykite dar karta."<<endl;
+        cin>>pasirinkimas;
+    }
+    return pasirinkimas;
+}
+
 void galutinis(vector <duomenys> &studentai, int i,char &pasirinkimas)
 {
-    if(pasirinkimas == 'm')
+    switch(pasirinkimas)
     {
-        if(studentai[i].namu_darbai.size() == 0)
+        case 'm':
         {
-            exit(0);
-        }
-        else
-        {
-            double mediana = 0;
-            std::sort(studentai[i].namu_darbai.begin(),studentai[i].namu_darbai.end());
-            if(studentai[i].namu_darbai.size()%2==0)
+            if(studentai[i].namu_darbai.size() == 0)
             {
-                mediana=(studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2-1]+studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2])/2.0;
+                exit(0);
             }
             else
             {
-                mediana=studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2]*1.0;
+                double mediana = 0;
+                std::sort(studentai[i].namu_darbai.begin(),studentai[i].namu_darbai.end());
+                if(studentai[i].namu_darbai.size()%2==0)
+                {
+                    mediana=(studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2-1]+studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2])/2.0;
+                }
+                else
+                {
+                    mediana=studentai[i].namu_darbai[studentai[i].namu_darbai.size()/2]*1.0;
+                }
+                studentai[i].Galutinis = mediana*0.4+0.6*studentai[i].egzaminas;
             }
-            studentai[i].Galutinis = mediana*0.4+0.6*studentai[i].egzaminas;
+            break;
         }
-    }
-    else if(pasirinkimas == 'v')
-    {
-        if(studentai[i].namu_darbai.size() == 0)
+        case 'v':
         {
-            exit(0);
-        }
-        else
-        {
-            double vidurkis = 0;
-            for(int w=0;w<studentai[i].namu_darbai.size();w++)
+            if(studentai[i].namu_darbai.size() == 0)
             {
-                vidurkis+=studentai[i].namu_darbai[w];
+                exit(0);
             }
-            vidurkis/=double(studentai[i].namu_darbai.size());
-            studentai[i].Galutinis = vidurkis*0.4+0.6*studentai[i].egzaminas;
+            else
+            {
+                double vidurkis = 0;
+                for(int w=0;w<studentai[i].namu_darbai.size();w++)
+                {
+                    vidurkis+=studentai[i].namu_darbai[w];
+                }
+                vidurkis/=double(studentai[i].namu_darbai.size());
+                studentai[i].Galutinis = vidurkis*0.4+0.6*studentai[i].egzaminas;
+            }
+            break;
         }
     }
 }
@@ -112,27 +140,30 @@ void skaitymas(vector <duomenys> &studentai, int &ilgiausias_vardas, int &ilgiau
     in.close();
 }
 
-void atrinkimas(vector <duomenys>& studentai, vector <duomenys>& blogi, vector <duomenys>& geri)
+void atrinkimas_1(vector <duomenys>& studentai, vector <duomenys>& blogi, vector <duomenys>& geri)
 {
-    for(auto i : studentai)
-    {
-        if(i.Galutinis >= 5)
-            geri.push_back(i);
-        else if(i.Galutinis < 5)
-            blogi.push_back(i);
-    }
+    sort(studentai.begin(), studentai.end(), tikrinimas_gal);
+    std::vector<duomenys>::iterator it = std::find_if(studentai.begin(), studentai.end(), tikrinimas_5);
+    std:copy(studentai.begin(),it,std::back_inserter(blogi));
+    std::copy(it,studentai.end(),std::back_inserter(geri));
 }
-void isvedimas(vector <duomenys> &blogi, vector <duomenys> &geri, int &ilgiausias_vardas, int &ilgiausia_pavarde, int skaicius)
+void atrinkimas_2(vector <duomenys>& studentai, vector<duomenys> &blogi)
+{
+    sort(studentai.begin(), studentai.end(), tikrinimas_gal);
+    std::vector<duomenys>::iterator it = std::find_if(studentai.begin(), studentai.end(), tikrinimas_5);
+    std::copy(it,studentai.end(),std::back_inserter(blogi));
+    studentai.resize(studentai.size()-blogi.size());
+}
+void isvedimas(vector <duomenys> &blogi, vector <duomenys> &geri, int &ilgiausias_vardas, int &ilgiausia_pavarde)
 {
     std::ofstream out1("geri.txt");
     std::ofstream out2("blogi.txt");
     out1<<std::setw(ilgiausias_vardas+2)<<std::left<<"Vardas"<<std::setw(ilgiausia_pavarde+2)<<std::left<<"Pavarde  "<<std::left<<"Galutinis"<<endl;
-    for(int i=0;i<ilgiausias_vardas+ilgiausia_pavarde+13;i++)
-        out1<<"-";
-    out1<<endl;
     out2<<std::setw(ilgiausias_vardas+2)<<std::left<<"Vardas"<<std::setw(ilgiausia_pavarde+2)<<std::left<<"Pavarde  "<<std::left<<"Galutinis"<<endl;
     for(int i=0;i<ilgiausias_vardas+ilgiausia_pavarde+13;i++)
+        out1<<"-";
         out2<<"-";
+    out1<<endl;
     out2<<endl;
     for(auto i : geri)
         out1<<std::setw(ilgiausias_vardas+2)<<std::left<<i.vardas<<std::setw(ilgiausia_pavarde+2)<<std::left<<i.pavarde<<std::fixed<<std::setprecision(2)<<std::setw(4)<<std::left<<i.Galutinis<<endl;

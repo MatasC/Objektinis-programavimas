@@ -4,6 +4,14 @@ bool tikrinimas(duomenys stud1, duomenys stud2)
     return stud1.vardas<stud2.vardas;
 }
 
+bool tikrinimas_gal(duomenys stud1, duomenys stud2)
+{
+    return stud1.Galutinis > stud2.Galutinis;
+}
+bool tikrinimas_5(duomenys stud1)
+{
+    return stud1.Galutinis == 5;
+}
 int ilgiausias(int tikrinamas_ilgis, int ilgiausias_vardas)
 {
     return std::max(ilgiausias_vardas,tikrinamas_ilgis);
@@ -84,12 +92,12 @@ void skaitymas(list <duomenys> &studentai, int &ilgiausias_vardas, int &ilgiausi
         laikinas.namu_darbai.clear();
         studentai.push_back(laikinas);
     }
-    studentai.sort(tikrinimas);
     in.close();
 }
 
-void atrinkimas(list <duomenys> &studentai, list <duomenys> &geri, list <duomenys> &blogi)
+void atrinkimas_1(list <duomenys> &studentai, list <duomenys> &geri, list <duomenys> &blogi)
 {
+    studentai.sort(tikrinimas);
     for(auto i : studentai)
     {
         if(i.Galutinis >= 5)
@@ -97,6 +105,14 @@ void atrinkimas(list <duomenys> &studentai, list <duomenys> &geri, list <duomeny
         else if(i.Galutinis < 5)
             blogi.push_back(i);
     }
+}
+
+void atrinkimas_2(list <duomenys>& studentai, list <duomenys>& blogi)
+{
+    studentai.sort(tikrinimas_gal);
+    std::list<duomenys>::iterator it = std::find_if(studentai.begin(), studentai.end(), tikrinimas_5);
+    blogi.splice(blogi.begin(),studentai,it,studentai.end());
+    studentai.resize(studentai.size()-blogi.size());
 }
 
 void isvedimas(list <duomenys> &geri, list <duomenys> &blogi, int &ilgiausias_vardas, int &ilgiausia_pavarde, int skaicius)
