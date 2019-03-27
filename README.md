@@ -6,6 +6,7 @@ Programa nuskaito mokinio vardą, pavardę,egzamino įvertinimą ir -make namų 
 -make vector: sukuria failą `vector.exe`.  
 -make deque: sukuria failą `deque.exe`.  
 -make list: sukuria failą `list.exe`.  
+-make generavimas: sukuria failą `generavimas.exe` ir sugeneruoja 5 mokinių failus (nuo 100 iki 1 000 000 eilučių).
 -make funkcijos: sukurią failą `function.o`.   
 -make valymas: ištrina programų paleidimo failus `*.exe` ir visus failus programos sukurtus šailus su pabaiga `.o` arba `.txt` išskyrus `Laiku_suvestine.txt`.   
 ## Programos paleidimas   
@@ -24,7 +25,7 @@ Norint, kad programa nuskaitytų duomenis iš failo, reikia papildyti prie progr
 Tekstinio failo pavyzdys:  
 ```shell
 Matas    Cenys     8     9     6     9
-Arvydas  Sabonis   10    7     8     10
+Kasparas  Bražėnas   9    5     8     10
 ```
 ## Programos veikimo rezultatai
 ### Galutinės versijos laikų rezultatai  
@@ -68,6 +69,12 @@ Taip pat verta paminėti, kad šioje versijoje buvo pastebėta ir sutvarkyta atm
 ### v0.4
 Tikrintos programos turėjo po 100, 1 000, 10 000, 100 000, 1 000 000 eilučių ir 10 namų darbų pažymių. Studentų skirstymas buvo neteisingas ir buvo pataisytas versijoje v0.5 (iki v0.5 studentai buvo išskirstomi prieš pat išvedimą if'u patikrinant jų galutinį pažymį). Taip parašyta programa, eilučių skaičiui padidėjus 10 kartų, sulėtėdavo apytiksliai 10 (paskutinės dvi iteracijos sulėtėdavo netgi šiek tiek daugiau nei 10 kartų). daugiausiai laiko užimdavo failų sugeneravimas ir išvedimas (kadangi atrinkimas į gerus ir blogus buvo atliekamas išvedant duomenis).
 ## Versijų istorija
+### [v1.0.1]() - (2019-03-27)
+**Pridėta**  
+-Failų generavimo failai generavimas.cpp ir generating.cpp.  
+**Koreguota**  
+-makefile pridėta komanda failų generavimui.  
+-Papildytas README.md
 ### [v1.0](https://github.com/MatasC/Objektinis-programavimas/releases/tag/uzd2_v1.0) - (2019-03-23)  
 **Koreguota**  
 -Visų konteinerių main funkcijos, taip pat ir papildomos funkcijos.  
