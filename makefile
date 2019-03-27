@@ -7,4 +7,7 @@ deque: deque.o
 funkcijos:
 	g++ -c function.cpp
 valymas:
-	rm *.o blogi.txt geri.txt vector deque list
+	rm *.o blogi.txt geri.txt vector deque list generavimas
+generavimas: generating.o
+	g++ -o generavimas generavimas.cpp generating.o
+	./generavimas
